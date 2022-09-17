@@ -4,8 +4,10 @@
     
 @section('content')
 Login
-    <form action="/show" method="POST">
-        <input type="email" name="mail">
+    <form action="{{ route('login') }}" method="POST">
+        @csrf
+        <input type="email" name="email">
         <input type="password" name="password">
+        <button type="submit">Iniciar sesión</button>
     </form>
 @endsection

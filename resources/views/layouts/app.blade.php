@@ -8,6 +8,11 @@
     <title>@yield('title')</title>
 </head>
 <body>
+    <nav>
+        <div class="logo"></div>
+
+        <a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
+    </nav>
     @yield('content')
 </body>
 </html>
