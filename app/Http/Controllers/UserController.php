@@ -16,8 +16,15 @@ class UserController extends Controller
     public function index()
     {
         $id = Auth::id();
+
         $usuario = User::find($id);
-        return view('user.index', ['usuario' => $usuario]);
+
+        $fecha = $usuario->created_at;
+        $fecha = explode(' ', $fecha)[0];
+        $fecha = explode('-', $fecha);
+        $fecha = join('/', array_reverse($fecha, false));
+
+        return view('user.index', ['usuario' => $usuario, 'fecha' => $fecha]);
     }
 
     /**
