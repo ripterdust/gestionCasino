@@ -128,14 +128,19 @@ nav {
     width: 50vw;
     min-height: 50vh;
     transform: translate(-50%);
-    visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1em;
     transition: 0.3s ease-in-out;
+    box-shadow: $boxShadow;
     .btn {
         margin-top: 1em;
     }
+}
+
+.hidden {
+    visibility: hidden;
+    transition: 0.3s;
 }

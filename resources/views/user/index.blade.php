@@ -6,8 +6,8 @@
 
 
 @section('content')
-    <div class="modal" id="fotoModal">
-        <div class="camara">asdf</div>
+    <div class="modal hidden" id="fotoModal">
+        <video class="camara" id="camara" src="" autoplay=true></video>
         <div class="btn btn-fill">Tomar foto</div>
     </div>
     <div class="metrics">
@@ -50,7 +50,7 @@
                 @if ($usuario->photo)
                     <img src="{{ $usuario->photo }}" alt="">
                 @else
-                    <div class="tomarFoto">
+                    <div class="tomarFoto" id="tomarFoto">
 
                         <div class="btn">Tomar foto</div>
                     </div>                    
