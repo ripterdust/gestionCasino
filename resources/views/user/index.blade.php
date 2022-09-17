@@ -6,6 +6,10 @@
 
 
 @section('content')
+    <div class="modal" id="fotoModal">
+        <div class="camara">asdf</div>
+        <div class="btn btn-fill">Tomar foto</div>
+    </div>
     <div class="metrics">
         <div class="metric">
             <div class="text">
@@ -55,4 +59,6 @@
         </div>
         <div class="card">Tarjeta dos</div>
     </div>
+
+    @vite('resources/js/user/tomarFoto.js')
 @endsection

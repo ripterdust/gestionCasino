@@ -39,6 +39,7 @@ nav {
     border: 1px solid $primary;
     border-radius: 1em;
     transition: 0.2s ease-in-out;
+    cursor: pointer;
     &:hover {
         @extend %sombra;
         background: $primary;
@@ -116,4 +117,25 @@ nav {
 
 .mt-2 {
     margin-top: 2em;
+}
+
+.modal {
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    z-index: 100;
+    background: white;
+    width: 50vw;
+    min-height: 50vh;
+    transform: translate(-50%);
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    transition: 0.3s ease-in-out;
+    .btn {
+        margin-top: 1em;
+    }
 }
