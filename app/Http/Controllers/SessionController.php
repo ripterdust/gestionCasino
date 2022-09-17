@@ -19,7 +19,7 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
 
-        if (auth()->attempt(request(['email', 'password']))) {
+        if (auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([
                 'message' => 'Correo o contraseña erróneos'
             ]);
