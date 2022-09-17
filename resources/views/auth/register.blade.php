@@ -21,12 +21,22 @@
             @enderror
             @error('email')
                 <div class="error">
-                    Por favor ingrese su correo electrónico
+                    {{ $message }}
                 </div>
             @enderror
-             @error('password')
+            @error('password')
                 <div class="error">
-                    Por favor ingrese su contraseña
+                    La contraseña debe de tener una longitud mínima de 6 caracteres
+                </div>
+            @enderror
+            @error('password_confim')
+                <div class="error">
+                    Las contraseñas no coinciden
+                </div>
+            @enderror
+            @error('name')
+                <div class="error">
+                    Por favor inserte su nombre
                 </div>
             @enderror
             <label for="name">Nombre</label>
