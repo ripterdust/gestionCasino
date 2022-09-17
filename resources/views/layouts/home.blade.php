@@ -8,8 +8,17 @@
     <title>@yield('title')</title>
 </head>
 <body>
+    <nav class="nav">
+        <div class="logo">
+            Acá irá el logo
+        </div>
 
+
+        <div class="options">
+            <a href="{{ route('login') }}" class="btn btn-black">Login</a>
+            <a href="{{ route('register') }}" class="btn btn-primary">Registrarse</a>
+        </div>
+    </nav>
     @yield('content')
-    
 </body>
 </html>

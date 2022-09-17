@@ -13,13 +13,12 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
     Route::post('/register', [RegisterController::class, 'store'])->name('store');
 });
 
-
 Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
     Route::get('/', function () {
         return 'hola';
-    })->name('user');
+    })->name('home');
 });
 
-Route::group([], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('index');
 });
