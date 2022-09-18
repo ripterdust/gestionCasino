@@ -29,3 +29,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
 });
+
+Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');

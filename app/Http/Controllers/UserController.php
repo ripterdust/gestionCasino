@@ -24,7 +24,7 @@ class UserController extends Controller
         $fecha = explode('-', $fecha);
         $fecha = join('/', array_reverse($fecha, false));
 
-        return view('user.index', ['usuario' => $usuario, 'fecha' => $fecha]);
+        return view('user.index', ['usuario' => $usuario, 'fecha' => $fecha, 'id' => $id]);
     }
 
     /**
@@ -35,6 +35,20 @@ class UserController extends Controller
     public function create()
     {
         //
+    }
+
+    public function saveImage(Request $request)
+    {
+
+        $img = $request->input('img');
+        $id = $request->input('id');
+        $id = intval($id);
+
+        $usuario = User::find($id);
+        $usuario->img = $img;
+        $usuario->save();
+
+        return ['done' => true, 'img' => $img, 'id' => $id];
     }
 
     /**

@@ -7,8 +7,10 @@
 
 @section('content')
     <div class="modal hidden" id="fotoModal">
+        <input type="file" name="" id="archivoImagen">
         <video class="camara" id="camara" src="" autoplay=true></video>
-        <div class="btn btn-fill">Tomar foto</div>
+        <div class="btn btn-fill" id="capturar">Tomar foto</div>
+        <canvas id="canvasFoto"></canvas>
     </div>
     <div class="metrics">
         <div class="metric">
@@ -47,12 +49,12 @@
                 </div>
             </div>
             <div class="photo">
-                @if ($usuario->photo)
-                    <img src="{{ $usuario->photo }}" alt="">
+                @if ($usuario->img)
+                    <img src="{{ $usuario->img }}" alt="">
                 @else
                     <div class="tomarFoto" id="tomarFoto">
 
-                        <div class="btn">Tomar foto</div>
+                        <div class="btn" id="">Tomar foto</div>
                     </div>                    
                 @endif
             </div>
@@ -60,5 +62,11 @@
         <div class="card">Tarjeta dos</div>
     </div>
 
+    <script>
+        const URLGuardar = {!! json_encode(route('img')) !!} || ''
+        const id = {!! json_encode($id) !!}
+    </script>
+    
     @vite('resources/js/user/tomarFoto.js')
+
 @endsection
