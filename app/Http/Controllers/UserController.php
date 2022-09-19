@@ -114,8 +114,9 @@ class UserController extends Controller
         $id = Auth::id();
         $usuario = User::find($id);
 
-        $pdf = PDF::loadView('user.pdf', ['user' => $usuario]);
+        $pdf = PDF::loadView('user.pdf', ['usuario' => $usuario]);
 
         return $pdf->download('carne.pdf');
+        return view('user.pdf', ['usuario' => $usuario]);
     }
 }
