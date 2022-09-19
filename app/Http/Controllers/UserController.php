@@ -106,4 +106,10 @@ class UserController extends Controller
     {
         //
     }
+
+    // Creación de carnet
+    public function carnet()
+    {
+        return 'hola';
+    }
 }

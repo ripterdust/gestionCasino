@@ -45,13 +45,17 @@ const tomarFoto = () => {
                 }),
             })
                 .then((res) => res.json())
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    alert(
+                        "Es imposible el acceder a la cámara, por favor intenta más tarde"
+                    );
+                })
                 .then((res) => {
                     const { done } = res;
-                    console.log(res);
                     if (done) {
                         const modal = document.querySelector("#fotoModal");
                         modal.classList.add("hidden");
+                        location.reload();
                         return;
                     }
 
@@ -62,7 +66,9 @@ const tomarFoto = () => {
 };
 
 const btnTomarFoto = document.querySelector("#capturar");
-btnTomarFoto.addEventListener("click", () => {
-    tomarFoto();
-});
+if (btnTomarFoto != null) {
+    btnTomarFoto.addEventListener("click", () => {
+        tomarFoto();
+    });
+}
 console.log(URLGuardar);

@@ -7,7 +7,6 @@
 
 @section('content')
     <div class="modal hidden" id="fotoModal">
-        <input type="file" name="" id="archivoImagen">
         <video class="camara" id="camara" src="" autoplay=true></video>
         <div class="btn btn-fill" id="capturar">Tomar foto</div>
         <canvas id="canvasFoto"></canvas>
@@ -39,22 +38,29 @@
 
     <div class="container g-2 mt-2">
         <div class="card g-2">
-            <div class="text">
+            <div class="text flex">
                 <div class="nombre">
+                    <label for="">Nombre</label>
                     {{ $usuario->name }}
     
                 </div>
-                <div>
+                <div class="mail">
+                    <label for="">Correo</label>
                     {{ $usuario->email }}
                 </div>
+                <a href="{{ route('carnet') }}" class="btn btn-fill">Descargar carnet</a>
             </div>
-            <div class="photo">
+            <div class="photo" id="">
                 @if ($usuario->img)
-                    <img src="{{ $usuario->img }}" alt="">
+                    <img src="{{ $usuario->img }}" alt="" class="imagen">
+                       <div class="overlay" id="tomarFoto">
+                            <div class="btn btn-fill" id="nuevaFOto">Tomar nueva foto</div>
+                        </div>
                 @else
                     <div class="tomarFoto" id="tomarFoto">
 
                         <div class="btn" id="">Tomar foto</div>
+                     
                     </div>                    
                 @endif
             </div>

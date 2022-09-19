@@ -13,3 +13,59 @@
         min-height: 30vh;
     }
 }
+
+.photo {
+    position: relative;
+    .imagen {
+        max-width: 100%;
+    }
+    &:hover .overlay {
+        z-index: 100;
+        opacity: 1;
+        transition: 0.3s ease-in-out;
+    }
+    .overlay {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+
+        .btn {
+            &:hover {
+                background: $primary;
+                color: white;
+            }
+        }
+    }
+}
+
+canvas {
+    visibility: hidden;
+}
+
+.card {
+    .flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .nombre,
+        .mail {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+            margin-bottom: 1em;
+            label {
+                font-size: 18px;
+            }
+        }
+    }
+}
