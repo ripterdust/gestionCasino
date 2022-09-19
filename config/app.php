@@ -194,9 +194,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        // ***********
-        // My providers
-        // ***********
+
         // Librería de los pdfs
         Barryvdh\DomPDF\ServiceProvider::class,
 

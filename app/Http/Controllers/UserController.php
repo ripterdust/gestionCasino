@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -110,6 +111,11 @@ class UserController extends Controller
     // Creación de carnet
     public function carnet()
     {
-        return 'hola';
+        $id = Auth::id();
+        $usuario = User::find($id);
+
+        $pdf = PDF::loadView('user.pdf', ['user' => $usuario]);
+
+        return json_encode($usuario);
     }
 }
