@@ -116,6 +116,6 @@ class UserController extends Controller
 
         $pdf = PDF::loadView('user.pdf', ['user' => $usuario]);
 
-        return json_encode($usuario);
+        return $pdf->download('carne.pdf');
     }
 }
