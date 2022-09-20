@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\URL;
 
 class UserController extends Controller
 {
@@ -111,12 +113,25 @@ class UserController extends Controller
     // Creación de carnet
     public function carnet()
     {
-        $id = Auth::id();
-        $usuario = User::find($id);
+        $usuario = User::find(Auth::id());
 
-        $pdf = PDF::loadView('user.pdf', ['usuario' => $usuario]);
+        // Generando código qr
+        $qr = QrCode::generate(json_encode(['usuario' => $usuario->email, 'id' => $usuario->id]));
+        $html =  base64_encode($qr);
 
+        $data = ['usuario' => $usuario, 'qr' => $html];
+        // Generando pdf
+        $pdf = PDF::loadView('user.pdf', $data);
+
+        $pdf->set_paper(0, 0, 100, 50);
         return $pdf->download('carne.pdf');
-        return view('user.pdf', ['usuario' => $usuario]);
+        return view('user.pdf', $data);
+    }
+
+
+    // Métodos privados del controlador
+    public function generarQr($json)
+    {
+        // Generando código qr
     }
 }

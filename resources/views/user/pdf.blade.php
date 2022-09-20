@@ -26,14 +26,21 @@
     <table class="carne" style="position: relative; background: #e8e7ed;">
         <div class="top" style="position: absolute; top: 0; left: 0;width: 100%; height: 1.5cm;background: #dd1162;"></div>
         <div class="body" style="z-index: 10; padding-top: 1em;">
-            <div class="img m-auto" style="width: 2cm; height: 2cm; overflow: hidden; " center>
-                <img src="{{ $usuario->img }}" alt="" style="height: 100%;">
-            </div>
+          <div class="img m-auto" style="width: 2cm; height: 2cm; overflow: hidden; " center>
+              <img src="{{ $usuario->img }}" alt="" style="height: 100%;">
+          </div>
 
-            <div class="title" style="width: 100%; text-align:center; font-size: 20px; font-weight: bold;">
-                {{ $usuario->name }}
-       </div>
-            <div class="subtitle" style="width: 100%; text-align:center;">Cliente</div>
+          <div class="title" style="width: 100%; text-align:center; font-size: 20px; font-weight: bold;">
+              {{ $usuario->name }}
+          </div>
+          <div class="subtitle" style="width: 100%; text-align:center;">Cliente</div>
+          <center>
+              <div class="img m-auto" style="width: 3.5cm; height: 3.5cm; overflow: hidden; padding-top: 1em;" center>
+                  <img src="data:image/svg+xml;base64, {!! $qr !!}" style="height: 100%;"/>
+              </div>
+          </center>
+        </div>
+        <div>
         </div>
         <div class="bottom" style="background: #dd1162; position: absolute; bottom: 0; left: 0; width: 100%; height: 1.5cm"></div>
     </table>
