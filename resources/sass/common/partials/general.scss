@@ -30,9 +30,14 @@ nav {
         font-weight: bold;
         font-size: 20px;
     }
+
+    .options {
+        padding: 0.5em 0;
+    }
 }
 
-.btn {
+.btn,
+button {
     text-decoration: none;
     color: $primary;
     padding: 0.5em 1em;
@@ -143,4 +148,12 @@ nav {
 .hidden {
     visibility: hidden;
     transition: 0.3s;
+}
+
+.mr-2 {
+    margin-right: 2em;
+}
+
+.mr-1 {
+    margin-right: 1em;
 }
