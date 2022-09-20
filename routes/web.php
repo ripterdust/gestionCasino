@@ -26,6 +26,7 @@ Route::group(['prefix' => 'auth', 'middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
     Route::get('/', [UserController::class, 'index'])->name('home');
     Route::get('/carnet', [UserController::class, 'carnet'])->name('carnet');
+    Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
 });
 
 Route::group(['middleware' => 'guest'], function () {

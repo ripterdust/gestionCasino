@@ -48,7 +48,7 @@
                     <label for="">Correo</label>
                     {{ $usuario->email }}
                 </div>
-                <a href="{{ route('carnet') }}" class="btn btn-fill">Descargar carnet</a>
+                <a href="{{ route('carnet') }}" class="btn btn-fill" >Descargar carnet</a>
             </div>
             <div class="photo" id="">
                 @if ($usuario->img)
