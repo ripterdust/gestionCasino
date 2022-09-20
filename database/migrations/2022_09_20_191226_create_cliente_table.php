@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('coins')->default(0);
             $table->longText('img')->nullable();
+            $table->string('email')->nullable();
         });
     }
 

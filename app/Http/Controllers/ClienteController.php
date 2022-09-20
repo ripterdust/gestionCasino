@@ -19,10 +19,11 @@ class ClienteController extends Controller
         $id = Auth::id();
 
         $usuario = User::find($id);
-        $clientes = Cliente::get();
         if ($usuario->role != 'admin') return redirect()->route('monedas', 'clientes');
 
-        return view('clients.table', compact('usuario'));
+        $clientes = Cliente::get();
+
+        return view('clients.table', compact('usuario', 'clientes'));
     }
 
     public function mostrarUsuario($id)
@@ -44,7 +45,12 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        $id = Auth::id();
+
+        $usuario = User::find($id);
+        if ($usuario->role != 'admin') return redirect()->route('monedas', 'clientes');
+
+        return view('clients.create', compact('usuario'));
     }
 
     /**

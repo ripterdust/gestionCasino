@@ -7,6 +7,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
@@ -24,7 +25,9 @@ class UserController extends Controller
 
         if ($usuario->role != 'admin') return redirect()->route('monedas');
 
-        $usuarios = User::get();
+        $usuarios = DB::table('users')
+            ->where('role', '!=', 'admin')
+            ->get();
         return view('admin.index', compact('usuario', 'usuarios'));
     }
 
