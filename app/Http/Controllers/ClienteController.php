@@ -131,4 +131,24 @@ class ClienteController extends Controller
 
         return $pdf->stream();
     }
+
+    // Monedas
+    public function monedas()
+    {
+        $id = Auth::id();
+
+        $usuario = User::find($id);
+        if ($usuario->role != 'cajero') return redirect()->route('home');
+
+        return view('caja.monedas', compact('usuario'));
+    }
+
+    public function agregarMonedas($usuario, $id)
+    {
+        $cliente = Cliente::find($id);
+
+        if (!$cliente || $cliente->email != $usuario) return 'No hay nada';
+
+        return $cliente;
+    }
 }

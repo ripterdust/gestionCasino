@@ -33,8 +33,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/carnet/{id}', [ClienteController::class, 'carnet'])->name('carnet');
 
     // Rutas de cajero
-    Route::get('/monedas', [UserController::class, 'monedas'])->name('monedas');
-
+    Route::get('/monedas', [ClienteController::class, 'monedas'])->name('monedas');
+    Route::get('/monedas/{usuario}/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');
 
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
 });
