@@ -143,12 +143,17 @@ class ClienteController extends Controller
         return view('caja.monedas', compact('usuario'));
     }
 
-    public function agregarMonedas($usuario, $id)
+    public function agregarMonedas($usr, $id)
     {
+
+        $idUsr = Auth::id();
+
+        $usuario = User::find($idUsr);
+        if ($usuario->role != 'cajero') return redirect()->route('home');
+
         $cliente = Cliente::find($id);
+        if (!$cliente || $cliente->email != $usr) return redirect()->route('monedas');
 
-        if (!$cliente || $cliente->email != $usuario) return 'No hay nada';
-
-        return $cliente;
+        return view('caja.caja', compact('usuario', 'cliente'));
     }
 }
