@@ -23,18 +23,18 @@ aside {
     }
     padding: 1em;
 
-    .active {
-        background: white;
-        width: 100%;
-        box-shadow: $boxShadow;
-        border-radius: 1em;
-    }
     .option {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 2fr;
         padding: 1em 0.5em 1em 2em;
-
+        cursor: pointer;
+        &:hover {
+            background: white;
+            width: 100%;
+            box-shadow: $boxShadow;
+            border-radius: 1em;
+        }
         .icono {
             padding: 1em;
             background: $primary;
