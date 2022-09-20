@@ -27,7 +27,7 @@
                 <div class="icono">
                     <i class="fa-solid fa-id-card"></i>
                 </div>
-                <a href="/carnet" class="">Usarios</a>
+                <a href="{{ route('clientes') }}" class="">Clientes</a>
             </div>
         @else
             <div class="option">

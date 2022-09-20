@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,15 @@ class ClienteController extends Controller
     {
         $id = Auth::id();
 
+        $usuario = User::find($id);
+        $clientes = Cliente::get();
+        if ($usuario->role != 'admin') return redirect()->route('monedas', 'clientes');
+
+        return view('clients.table', compact('usuario'));
+    }
+
+    public function mostrarUsuario($id)
+    {
         $usuario = User::find($id);
 
         $fecha = $usuario->created_at;
