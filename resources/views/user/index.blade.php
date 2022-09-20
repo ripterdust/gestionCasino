@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="container g-2 mt-2">
+    <div class="container tarjeta-centrada mt-2">
         <div class="card g-2">
             <div class="text flex">
                 <div class="nombre">
@@ -48,7 +48,6 @@
                     <label for="">Correo</label>
                     {{ $usuario->email }}
                 </div>
-                <a href="{{ route('carnet') }}" class="btn btn-fill" >Descargar carnet</a>
             </div>
             <div class="photo" id="">
                 @if ($usuario->img)
@@ -65,7 +64,6 @@
                 @endif
             </div>
         </div>
-        <div class="card">Tarjeta dos</div>
     </div>
 
     <script>

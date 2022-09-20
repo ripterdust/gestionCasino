@@ -76,3 +76,13 @@ canvas {
     align-items: center;
     padding-top: 1em;
 }
+
+.tarjeta-centrada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        width: 50%;
+    }
+}

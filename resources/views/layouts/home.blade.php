@@ -12,10 +12,6 @@
         <div class="logo">
             Acá irá el logo
         </div>
-        <div class="options">
-            <a href="{{ route('login') }}" class="btn mr-1">Entrar</a>
-            <a href="{{ route('register') }}" class="btn btn-fill">Unirme</a>
-        </div>
     </nav>
     @yield('content')
 </body>
