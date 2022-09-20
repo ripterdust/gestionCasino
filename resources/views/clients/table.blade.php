@@ -26,6 +26,7 @@
                 <td>
                     <a href="" class="acn"><i class="fa-solid fa-pen"></i></a>
                     <a href="" class="acn"><i class="fa-solid fa-trash"></i></a>
+                    <a href="" class="acn"><i class="fa-solid fa-id-badge"></i></a>
                 </td>
             </tr>
         @endforeach
