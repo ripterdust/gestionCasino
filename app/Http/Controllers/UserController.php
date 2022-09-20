@@ -35,7 +35,13 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $id = Auth::id();
+
+        $usuario = User::find($id);
+
+        if ($usuario->role != 'admin') return redirect()->route('monedas');
+
+        return view('admin.create', compact('usuario'));
     }
 
     public function saveImage(Request $request)

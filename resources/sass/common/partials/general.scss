@@ -158,6 +158,65 @@ button {
     margin-right: 1em;
 }
 
-mt-1 {
+.mt-1 {
     margin-top: 1em;
+}
+
+.frm-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    form {
+        @extend %caja;
+        width: 30%;
+        padding: 3em 3em;
+        position: relative;
+        .title {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4em;
+            height: 4em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $primary;
+            border-radius: 50%;
+            i {
+                font-size: 30px;
+                color: white;
+            }
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .frm {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 1em;
+            label {
+                color: black;
+                opacity: 0.8;
+            }
+            input {
+                width: 100%;
+                padding: 0.5em;
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                border-radius: 0.5em;
+
+                &:focus {
+                    outline: 1px solid $primary;
+                }
+            }
+        }
+        .btn {
+            width: 100%;
+        }
+    }
 }

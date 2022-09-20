@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="button">
-        <a href="" class="btn btn-fill">Agregar nuevo cajero</a>
+        <a href="{{ route('nuevoCajero') }}" class="btn btn-fill">Agregar nuevo cajero</a>
     </div>
     <table class="table">
         <tr>
