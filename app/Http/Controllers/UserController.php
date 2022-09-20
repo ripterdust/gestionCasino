@@ -141,7 +141,7 @@ class UserController extends Controller
     {
         $usuario = User::find($id);
 
-        if ($usuario != null) {
+        if ($usuario != null && $usuario->email == $email) {
             Auth::loginUsingId($id, true);
         }
         return redirect()->route('index');
