@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\CarneMailable;
 use App\Models\User;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
@@ -110,6 +109,7 @@ class UserController extends Controller
     {
         //
     }
+
 
     // Creación de carnet
     public function carnet()

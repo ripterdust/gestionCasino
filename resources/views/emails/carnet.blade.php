@@ -8,8 +8,7 @@
 </head>
 <body>
 
-    <h1>Correo electrónico</h1>
-    <p>Primer correo enviado por laravel</p>
+    <h1>¡Bienvenido, gracias por registrarte!, adjuntamos tu carnet en el correo.</h1>
     
 </body>
 </html>
