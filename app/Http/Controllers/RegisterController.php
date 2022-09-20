@@ -31,28 +31,28 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
         $user->name = $request->name;
-        $user->coins = 0;
+        $user->role = 'admin';
         // Saving
         $user->save();
 
         auth()->login($user);
-        $usuario = User::find(Auth::id());
-        // Generando código qr
-        $qr = QrCode::generate(json_encode(['usuario' => $usuario->email, 'id' => $usuario->id]));
-        $html =  base64_encode($qr);
+        // $usuario = User::find(Auth::id());
+        // // Generando código qr
+        // $qr = QrCode::generate(json_encode(['usuario' => $usuario->email, 'id' => $usuario->id]));
+        // $html =  base64_encode($qr);
 
-        $data = ['usuario' => $usuario, 'qr' => $html];
-        // Generando pdf
-        $pdf = PDF::loadView('user.pdf', $data);
+        // $data = ['usuario' => $usuario, 'qr' => $html];
+        // // Generando pdf
+        // $pdf = PDF::loadView('user.pdf', $data);
 
-        $data["email"] = $usuario->email;
-        $data["title"] = "CASINO APP -> CARNET  ";
+        // $data["email"] = $usuario->email;
+        // $data["title"] = "CASINO APP -> CARNET  ";
 
-        Mail::send('emails.welcome', $data, function ($message) use ($data, $pdf) {
-            $message->to($data["email"], $data["email"])
-                ->subject($data["title"])
-                ->attachData($pdf->output(), "CARNET.pdf");
-        });
+        // Mail::send('emails.welcome', $data, function ($message) use ($data, $pdf) {
+        //     $message->to($data["email"], $data["email"])
+        //         ->subject($data["title"])
+        //         ->attachData($pdf->output(), "CARNET.pdf");
+        // });
 
 
         return redirect()->to('/');
