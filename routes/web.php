@@ -22,17 +22,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+
+    // Rutas de admin 
     Route::get('/', [UserController::class, 'index'])->name('home');
     Route::get('/usuario/nuevo', [UserController::class, 'create'])->name('nuevoCajero');
     Route::post('/usuario', [UserController::class, 'store'])->name('user.new');
     Route::get('/cliente', [ClienteController::class, 'index'])->name('clientes');
     Route::get('/cliente/new', [ClienteController::class, 'create'])->name('cliente.new');
     Route::post('/cliente/new', [ClienteController::class, 'store'])->name('cliente.store');
+    Route::get('/carnet/{id}', [ClienteController::class, 'carnet'])->name('carnet');
 
-
+    // Rutas de cajero
     Route::get('/monedas', [UserController::class, 'monedas'])->name('monedas');
+
+
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
-    Route::get('/carnet', [UserController::class, 'carnet'])->name('carnet');
 });
 
 Route::group(['middleware' => 'guest'], function () {

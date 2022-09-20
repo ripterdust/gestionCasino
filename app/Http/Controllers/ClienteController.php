@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -113,5 +115,20 @@ class ClienteController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function carnet($id)
+    {
+        $cliente = Cliente::find($id);
+
+        // Generando código qr
+        $datosQr = base64_encode(json_encode(['usuario' => $cliente->email, 'id' => $cliente->id]));
+        $qr = QrCode::generate($datosQr);
+        $html =  base64_encode($qr);
+        $data = ['usuario' => $cliente, 'qr' => $html];
+        // Generando pdf
+        $pdf = PDF::loadView('clients.pdf', $data);
+
+        return $pdf->stream();
     }
 }
