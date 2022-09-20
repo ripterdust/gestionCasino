@@ -15,12 +15,7 @@
         <div class="logo">
             Logo del casino
         </div>
-        <div class="option active">
-            <div class="icono">
-                <i class="fa-solid fa-house"></i>
-            </div>
-            <a href="/" class="">Inicio</a>
-        </div>
+      
         @if ($usuario->role == 'admin')
             <div class="option">
                 <div class="icono">
@@ -32,7 +27,14 @@
                 <div class="icono">
                     <i class="fa-solid fa-id-card"></i>
                 </div>
-                <a href="/carnet" class="">Uusarios</a>
+                <a href="/carnet" class="">Usarios</a>
+            </div>
+        @else
+            <div class="option">
+                <div class="icono">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <a href="/" class="">Inicio</a>
             </div>
         @endif
     </aside>
