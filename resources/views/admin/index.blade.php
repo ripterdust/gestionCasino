@@ -5,7 +5,9 @@
 @endsection
 
 @section('content')
-    
+    <div class="button">
+        <a href="" class="btn btn-fill">Agregar nuevo cajero</a>
+    </div>
     <table class="table">
         <tr>
             <th>Nombre</th>

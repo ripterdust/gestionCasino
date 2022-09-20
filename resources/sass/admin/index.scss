@@ -118,3 +118,10 @@ aside {
         }
     }
 }
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
