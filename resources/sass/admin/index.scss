@@ -5,6 +5,11 @@ body {
     grid-template-columns: 20% 80%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 aside {
     display: flex;
     flex-direction: column;
@@ -76,5 +81,40 @@ aside {
 .header {
     .btn {
         box-shadow: $boxShadow;
+    }
+}
+
+.table {
+    width: 100%;
+    background: white;
+    padding: 1em;
+    border-radius: 1em;
+    box-shadow: $boxShadow;
+
+    tr {
+        &:hover {
+            box-shadow: $boxShadow;
+        }
+
+        td {
+            padding: 1em 0;
+            text-align: center;
+
+            .acn {
+                color: white;
+                background: $primary;
+                padding: 0.5em;
+                border-radius: 0.5em;
+                font-size: 13px;
+            }
+        }
+    }
+
+    tr:first-child {
+        font-size: 14px;
+
+        &:hover {
+            box-shadow: none;
+        }
     }
 }

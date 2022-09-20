@@ -23,7 +23,9 @@ class UserController extends Controller
         $usuario = User::find($id);
 
         if ($usuario->role != 'admin') return redirect()->route('monedas');
-        return view('admin.index', compact('usuario'));
+
+        $usuarios = User::get();
+        return view('admin.index', compact('usuario', 'usuarios'));
     }
 
     /**

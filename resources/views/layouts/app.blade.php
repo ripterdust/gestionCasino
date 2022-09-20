@@ -21,7 +21,7 @@
                 <div class="icono">
                     <i class="fa-solid fa-sack-dollar"></i>
                 </div>
-                <a href="/cajero" class="">Cajeros</a>
+                <a href="{{ route('home') }}" class="">Cajeros</a>
             </div>
             <div class="option">
                 <div class="icono">
@@ -34,7 +34,7 @@
                 <div class="icono">
                     <i class="fa-solid fa-house"></i>
                 </div>
-                <a href="/" class="">Inicio</a>
+                <a href="{{ route('home') }}" class="">Inicio</a>
             </div>
         @endif
     </aside>

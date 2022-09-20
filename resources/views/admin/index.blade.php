@@ -6,6 +6,25 @@
 
 @section('content')
     
-    Este es el inicio
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Accion</th>
+        </tr>
+
+        @foreach ($usuarios as $usr)
+            <tr>
+                <td><a href="">{{  $usr->name }}</a></td>
+                <td>{{ $usr->email }}</td>
+                <td>
+                    <a href="" class="acn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="" class="acn"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+        @endforeach
+
+
+    </table>
     
 @endsection
