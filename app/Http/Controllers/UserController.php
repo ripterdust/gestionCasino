@@ -117,13 +117,15 @@ class UserController extends Controller
         $usuario = User::find(Auth::id());
 
         // Generando código qr
-        $qr = QrCode::generate(json_encode(['usuario' => $usuario->email, 'id' => $usuario->id]));
+        $datosQr = base64_encode(json_encode(['usuario' => $usuario->email, 'id' => $usuario->id]));
+        $qr = QrCode::generate($datosQr);
         $html =  base64_encode($qr);
 
         $data = ['usuario' => $usuario, 'qr' => $html];
         // Generando pdf
         $pdf = PDF::loadView('user.pdf', $data);
 
+        return $pdf->download('pdf.pdf');
         $data["email"] = $usuario->email;
         $data["title"] = "CASINO APP -> CARNET  ";
 
