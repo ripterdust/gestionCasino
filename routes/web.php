@@ -4,13 +4,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
-use GuzzleHttp\Middleware;
-use Illuminate\Contracts\Session\Session;
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'guest'], function () {
     // Get methods
     Route::get('/login', [SessionController::class, 'create'])->name('login');
     Route::get('/register', [RegisterController::class, 'create'])->name('register');
@@ -19,11 +16,11 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
     Route::post('/login', [SessionController::class, 'store'])->name('login');
 });
 
-Route::group(['prefix' => 'auth', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/logout', [SessionController::class, 'destroy'])->name('logout');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', [UserController::class, 'index'])->name('home');
     Route::get('/carnet', [UserController::class, 'carnet'])->name('carnet');
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');

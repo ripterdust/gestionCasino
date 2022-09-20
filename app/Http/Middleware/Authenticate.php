@@ -21,6 +21,6 @@ class Authenticate extends Middleware
 
     protected function authenticated($request, $user)
     {
-        return redirect('/user');
+        return redirect()->route('home');
     }
 }
