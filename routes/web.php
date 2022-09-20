@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', [UserController::class, 'index'])->name('home');
     Route::get('/usuario/nuevo', [UserController::class, 'create'])->name('nuevoCajero');
+    Route::post('/usuario', [UserController::class, 'store'])->name('user.new');
+
 
     Route::get('/monedas', [UserController::class, 'monedas'])->name('monedas');
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');

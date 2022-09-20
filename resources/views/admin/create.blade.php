@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="frm-body">
-        <form action="">
+        <form action="{{ route('user.new') }}" method="post">
             @csrf
             @method('post')
             <div class="title"><i class="fa-solid fa-sack-dollar"></i></div>

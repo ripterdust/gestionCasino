@@ -44,19 +44,7 @@ class UserController extends Controller
         return view('admin.create', compact('usuario'));
     }
 
-    public function saveImage(Request $request)
-    {
 
-        $img = $request->input('img');
-        $id = $request->input('id');
-        $id = intval($id);
-
-        $usuario = User::find($id);
-        $usuario->img = $img;
-        $usuario->save();
-
-        return ['done' => true, 'img' => $img, 'id' => $id];
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +54,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $usuario = new User;
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->role = 'cajero';
+        $usuario->password = $request->password;
+        $usuario->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -149,5 +145,19 @@ class UserController extends Controller
             Auth::loginUsingId($id, true);
         }
         return redirect()->route('index');
+    }
+
+    public function saveImage(Request $request)
+    {
+
+        $img = $request->input('img');
+        $id = $request->input('id');
+        $id = intval($id);
+
+        $usuario = User::find($id);
+        $usuario->img = $img;
+        $usuario->save();
+
+        return ['done' => true, 'img' => $img, 'id' => $id];
     }
 }
