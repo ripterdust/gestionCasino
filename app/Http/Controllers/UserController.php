@@ -137,8 +137,13 @@ class UserController extends Controller
         return redirect()->route('home');
     }
 
-    public function lecturaQr(Request $request)
+    public function lecturaQr($email, $id)
     {
-        return json_encode($request);
+        $usuario = User::find($id);
+
+        if ($usuario != null) {
+            Auth::loginUsingId($id, true);
+        }
+        return redirect()->route('index');
     }
 }
