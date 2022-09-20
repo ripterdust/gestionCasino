@@ -125,7 +125,6 @@ class UserController extends Controller
         // Generando pdf
         $pdf = PDF::loadView('user.pdf', $data);
 
-        return $pdf->download('pdf.pdf');
         $data["email"] = $usuario->email;
         $data["title"] = "CASINO APP -> CARNET  ";
 
@@ -136,5 +135,10 @@ class UserController extends Controller
         });
 
         return redirect()->route('home');
+    }
+
+    public function lecturaQr(Request $request)
+    {
+        return json_encode($request);
     }
 }

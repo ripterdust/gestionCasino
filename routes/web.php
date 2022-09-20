@@ -6,6 +6,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use GuzzleHttp\Middleware;
 use Illuminate\Contracts\Session\Session;
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,6 +30,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'user'], function () {
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::get('/qr/{usuario}/{id}', [UserController::class, 'lecturaQr'])->name('login_qr');
 });
 
 Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');
