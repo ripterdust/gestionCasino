@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/cliente/new', [ClienteController::class, 'create'])->name('cliente.new');
     Route::post('/cliente/new', [ClienteController::class, 'store'])->name('cliente.store');
 
+
     Route::get('/monedas', [UserController::class, 'monedas'])->name('monedas');
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
     Route::get('/carnet', [UserController::class, 'carnet'])->name('carnet');

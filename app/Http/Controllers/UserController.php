@@ -113,6 +113,12 @@ class UserController extends Controller
         //
     }
 
+    // Monedas
+    public function monedas()
+    {
+        return 'hola';
+    }
+
 
     // Creación de carnet
     public function carnet()
