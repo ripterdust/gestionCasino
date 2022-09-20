@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CarneMailable;
 use App\Models\User;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -123,15 +124,15 @@ class UserController extends Controller
         // Generando pdf
         $pdf = PDF::loadView('user.pdf', $data);
 
-        $pdf->set_paper(0, 0, 100, 50);
-        return $pdf->download('carne.pdf');
-        return view('user.pdf', $data);
-    }
+        $data["email"] = $usuario->email;
+        $data["title"] = "CASINO APP -> CARNET  ";
 
+        Mail::send('emails.carnet', $data, function ($message) use ($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                ->subject($data["title"])
+                ->attachData($pdf->output(), "CARNET.pdf");
+        });
 
-    // Métodos privados del controlador
-    public function generarQr($json)
-    {
-        // Generando código qr
+        return redirect()->route('home');
     }
 }
