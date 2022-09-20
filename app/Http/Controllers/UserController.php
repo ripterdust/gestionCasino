@@ -22,12 +22,8 @@ class UserController extends Controller
 
         $usuario = User::find($id);
 
-        $fecha = $usuario->created_at;
-        $fecha = explode(' ', $fecha)[0];
-        $fecha = explode('-', $fecha);
-        $fecha = join('/', array_reverse($fecha, false));
-
-        return view('user.index', ['usuario' => $usuario, 'fecha' => $fecha, 'id' => $id]);
+        if ($usuario->role != 'admin') return redirect()->route('monedas');
+        return view('admin.index', compact('usuario'));
     }
 
     /**

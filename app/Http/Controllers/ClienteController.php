@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClienteController extends Controller
 {
@@ -13,7 +15,16 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $id = Auth::id();
+
+        $usuario = User::find($id);
+
+        $fecha = $usuario->created_at;
+        $fecha = explode(' ', $fecha)[0];
+        $fecha = explode('-', $fecha);
+        $fecha = join('/', array_reverse($fecha, false));
+
+        return view('user.index', ['usuario' => $usuario, 'fecha' => $fecha, 'id' => $id]);
     }
 
     /**

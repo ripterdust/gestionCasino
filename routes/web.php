@@ -22,6 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', [UserController::class, 'index'])->name('home');
+    Route::get('/monedas', [UserController::class, 'monedas'])->name('monedas');
     Route::get('/carnet', [UserController::class, 'carnet'])->name('carnet');
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
 });

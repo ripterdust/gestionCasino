@@ -55,6 +55,6 @@ class RegisterController extends Controller
         // });
 
 
-        return redirect()->to('/');
+        return redirect()->route('home');
     }
 }
