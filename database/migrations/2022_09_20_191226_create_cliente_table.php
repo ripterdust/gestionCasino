@@ -16,6 +16,10 @@ return new class extends Migration
         Schema::create('cliente', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('name');
+            $table->string('phone');
+            $table->integer('coins')->default(0);
+            $table->longText('img')->nullable();
         });
     }
 
