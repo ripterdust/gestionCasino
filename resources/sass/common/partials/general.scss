@@ -171,6 +171,18 @@ button {
         width: 30%;
         padding: 3em 3em;
         position: relative;
+        .error {
+            width: 100%;
+            background: lighten($primary, 40%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5em 0;
+            color: $primary;
+            border-radius: 0.5em;
+            border: 1px solid $primary;
+            margin: 0.5em 0;
+        }
         .title {
             position: absolute;
             top: 0;

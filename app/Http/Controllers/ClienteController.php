@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Transacciones;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -155,5 +156,28 @@ class ClienteController extends Controller
         if (!$cliente || $cliente->email != $usr) return redirect()->route('monedas');
 
         return view('caja.caja', compact('usuario', 'cliente'));
+    }
+
+    public function guardarMonedas(Request $request)
+    {
+        $cliente = Cliente::find($request->id);
+        $request->coins = (int)$request->coins;
+
+        $transaccion = new Transacciones;
+        $transaccion->cliente_id = $cliente->id;
+        $transaccion->cajero_id = Auth::id();
+
+        $monedas = $cliente->coins + $request->coins;
+        if ($request->coins < 0) {
+            if ($cliente->coins + (int)$request->coins < 0) return redirect()->back()->withErrors(['message' => 'Fondos insuficientes']);
+        }
+
+        $transaccion->cantidad = $monedas;
+        $cliente->coins = $monedas;
+
+        $cliente->save();
+        $transaccion->save();
+
+        return redirect()->back();
     }
 }

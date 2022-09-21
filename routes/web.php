@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     // Rutas de cajero
     Route::get('/monedas', [ClienteController::class, 'monedas'])->name('monedas');
     Route::get('/monedas/{usuario}/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');
+    Route::post('/monedas/agregar', [ClienteController::class, 'guardarMonedas'])->name('monedas.store');
 
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
 });
