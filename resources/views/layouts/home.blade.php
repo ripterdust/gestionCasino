@@ -14,6 +14,8 @@
             Acá irá el logo
         </div>
     </nav>
-    @yield('content')
+    <div class="container-body">
+        @yield('content')
+    </div>
 </body>
 </html>
