@@ -118,6 +118,9 @@ button {
     @extend %caja;
     width: 100%;
     padding: 1em;
+    nav {
+        display: flex;
+    }
 }
 
 .mt-2 {

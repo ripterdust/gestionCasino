@@ -96,6 +96,9 @@
                     </tr>
                 @endforeach
             </table>
+            <div class="pagination">
+                {!! $transacciones->links() !!}
+            </div>
         </div>
 
     </div>
