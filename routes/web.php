@@ -42,7 +42,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
-    Route::get('/qr/{usuario}/{id}', [UserController::class, 'lecturaQr'])->name('login_qr');
+    Route::get('/qr/{usuario}/{id}', [ClienteController::class, 'validarQr'])->name('login_qr');
+    Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');
 });
 
 Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');

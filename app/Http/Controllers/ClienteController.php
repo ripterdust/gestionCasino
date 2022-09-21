@@ -81,7 +81,15 @@ class ClienteController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $cliente = Cliente::find($id);
+
+        $fecha = $cliente->created_at;
+        $fecha = explode(' ', $fecha)[0];
+        $fecha = explode('-', $fecha);
+        $fecha = join('/', array_reverse($fecha, false));
+
+        return view('clients.index', compact('cliente', 'fecha', 'id'));
     }
 
     /**
@@ -183,5 +191,28 @@ class ClienteController extends Controller
         $transaccion->save();
 
         return redirect()->back();
+    }
+
+    public function validarQr($usr, $id)
+    {
+        $id = (int)$id;
+        $cliente = Cliente::find($id);
+
+        if (!$cliente || $cliente->email != $usr) return redirect()->back()->withErrors(['message' => 'Usuario inválido o no encontrado']);
+
+        return redirect()->route('cliente.show', ['id' => $cliente->id]);
+    }
+
+    public function saveImage(Request $request)
+    {
+
+        $img = $request->input('img');
+        $id = (int)$request->input('id');
+
+        $cliente = Cliente::find($id);
+        $cliente->img = $img;
+        $cliente->save();
+
+        return ['done' => true, 'img' => $img, 'id' => $id];
     }
 }

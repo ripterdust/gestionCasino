@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('title')
     Usuario
@@ -15,7 +15,7 @@
         <div class="metric">
             <div class="text">
                 <div class="title">Monedas totales</div>
-                <div class="subtitle">{{ $usuario->coins }}</div>
+                <div class="subtitle">{{ $cliente->coins }}</div>
             </div>
             <div class="icon">
                 <i class="fa-solid fa-coins"></i>
@@ -41,17 +41,17 @@
             <div class="text flex">
                 <div class="nombre">
                     <label for="">Nombre</label>
-                    {{ $usuario->name }}
+                    {{ $cliente->name }}
     
                 </div>
                 <div class="mail">
                     <label for="">Correo</label>
-                    {{ $usuario->email }}
+                    {{ $cliente->email }}
                 </div>
             </div>
             <div class="photo" id="">
-                @if ($usuario->img)
-                    <img src="{{ $usuario->img }}" alt="" class="imagen">
+                @if ($cliente->img)
+                    <img src="{{ $cliente->img }}" alt="" class="imagen">
                        <div class="overlay" id="tomarFoto">
                             <div class="btn btn-fill" id="nuevaFOto">Tomar nueva foto</div>
                         </div>
