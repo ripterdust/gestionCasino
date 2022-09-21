@@ -85,7 +85,14 @@
                         @endif
                             <span>{{ $trc->cantidad }}</span>
                         </td>
-                        <td>{{ $trc->created_at }}</td>
+                        <td>
+                            {{ 
+                                date_format(
+                                    new DateTime($trc->created_at), 
+                                    'H:i d/m/y'
+                                )
+                             }}
+                           </td>
                     </tr>
                 @endforeach
             </table>
