@@ -9,6 +9,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -88,8 +89,13 @@ class ClienteController extends Controller
         $fecha = explode(' ', $fecha)[0];
         $fecha = explode('-', $fecha);
         $fecha = join('/', array_reverse($fecha, false));
+        $transacciones = DB::table('transacciones')
+            ->select('transacciones.created_at', 'users.name', 'cantidad')
+            ->leftJoin('users', 'users.id', '=', 'cajero_id')
+            ->orderBy('created_at', 'desc')
+            ->paginate(4);
 
-        return view('clients.index', compact('cliente', 'fecha', 'id'));
+        return view('clients.index', compact('cliente', 'fecha', 'id', 'transacciones'));
     }
 
     /**

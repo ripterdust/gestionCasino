@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="container tarjeta-centrada mt-2">
+    <div class="container g-2 mt-2">
         <div class="card g-2">
             <div class="text flex">
                 <div class="nombre">
@@ -64,6 +64,33 @@
                 @endif
             </div>
         </div>
+        <div class="card">
+            <table class="table">
+                <tr>
+                    <th>Nombre cajero</th>
+                    <th>Cantidad</th>
+                    <th>Fecha</th>
+                </tr>
+
+                @foreach ($transacciones as $trc)
+                    <tr>
+                        <td>{{ $trc->name }}</td>
+
+                        @if ($trc->cantidad > 0)
+                            <td class="verde">
+                                    
+                        @else
+                            <td class="rojo">
+                                    
+                        @endif
+                            <span>{{ $trc->cantidad }}</span>
+                        </td>
+                        <td>{{ $trc->created_at }}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+
     </div>
 
     <script>

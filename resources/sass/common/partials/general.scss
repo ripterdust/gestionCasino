@@ -232,3 +232,60 @@ button {
         }
     }
 }
+
+.table {
+    width: 100%;
+    background: white;
+    border-radius: 1em;
+
+    tr {
+        &:hover {
+            box-shadow: $boxShadow;
+        }
+        .rojo {
+            span {
+                background: #e74c3c;
+            }
+        }
+
+        .verde {
+            span {
+                background: #2ecc71;
+            }
+        }
+        td {
+            padding: 1em 0;
+            text-align: center;
+
+            .acn {
+                color: white;
+                background: $primary;
+                padding: 0.5em;
+                border-radius: 0.5em;
+                font-size: 13px;
+            }
+
+            span {
+                padding: 0.5em;
+                color: white;
+                font-size: 14px;
+                border-radius: 0.5em;
+            }
+        }
+    }
+
+    tr:first-child {
+        font-size: 14px;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+    padding: 0 1em;
+}
