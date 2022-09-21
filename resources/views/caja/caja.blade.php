@@ -22,6 +22,11 @@
                     {{ $message }}
                 </div>
             @enderror
+            @error('coins')
+                <div class="error">
+                    Cantidad no válida
+                </div>
+            @enderror
             <div class="frm">
                 
                 <label for="">Transaccion</label>

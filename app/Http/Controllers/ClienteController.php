@@ -160,6 +160,10 @@ class ClienteController extends Controller
 
     public function guardarMonedas(Request $request)
     {
+        $request->validate([
+            "coins" => 'required'
+        ]);
+
         $cliente = Cliente::find($request->id);
         $request->coins = (int)$request->coins;
 
@@ -172,7 +176,7 @@ class ClienteController extends Controller
             if ($cliente->coins + (int)$request->coins < 0) return redirect()->back()->withErrors(['message' => 'Fondos insuficientes']);
         }
 
-        $transaccion->cantidad = $monedas;
+        $transaccion->cantidad = $request->coins;
         $cliente->coins = $monedas;
 
         $cliente->save();
