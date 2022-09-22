@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -9,7 +10,9 @@ class SessionController extends Controller
     // Login
     public function create()
     {
-        return view('auth.login');
+
+        $usuarios = User::count();
+        return view('auth.login', compact('usuarios'));
     }
 
     public function store(Request $request)

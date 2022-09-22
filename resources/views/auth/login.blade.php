@@ -35,7 +35,10 @@
             <label for="password">Password</label>
             <input type="password" name="password" class="input" placeholder="Contraseña" autocomplete="off" id=password>
             <button type="submit">Iniciar sesión</button>
-            <a href="{{ route('register') }}">¿No tienes una cuenta?</a>
+            @if ($usuarios == 0)
+                <a href="{{ route('register') }}">¿No tienes una cuenta?</a>
+            @endif
+            {{-- <a href="{{ route('register') }}">¿No tienes una cuenta?</a> --}}
         </form>
         </div>
     </div>
