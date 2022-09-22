@@ -76,7 +76,16 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Auth::user()->role != 'admin') return redirect()->back();
+        $usuario = User::find($id);
+
+        $transacciones = DB::table('transacciones')
+            ->select('transacciones.created_at', 'users.name', 'cantidad')
+            ->leftJoin('users', 'users.id', '=', 'cajero_id')
+            ->orderBy('created_at', 'desc')
+            ->simplePaginate(4);
+
+        return view('admin.show', compact('usuario', 'transacciones'));
     }
 
     /**

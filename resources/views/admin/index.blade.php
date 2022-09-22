@@ -17,7 +17,7 @@
 
         @foreach ($usuarios as $usr)
             <tr>
-                <td><a href="">{{  $usr->name }}</a></td>
+                <td><a href="{{ route('cajero', ['id' => $usr->id]) }}">{{  $usr->name }}</a></td>
                 <td>{{ $usr->email }}</td>
                 <td>
                     <a href="" class="acn"><i class="fa-solid fa-pen"></i></a>
