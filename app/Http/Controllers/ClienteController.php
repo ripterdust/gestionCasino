@@ -179,6 +179,8 @@ class ClienteController extends Controller
             "coins" => 'required'
         ]);
 
+        if ((int)$request->coins === 0) return redirect()->back()->withErrors(['message' => 'La cantidad no puede ser 0']);
+
         $cliente = Cliente::find($request->id);
         $request->coins = (int)$request->coins;
 

@@ -16,7 +16,7 @@
          
             <div class="title"><i class="fa-solid fa-coins"></i></div>
             <input type="hidden" name="id" value="{{ $cliente->id }}">
-            <label for="">Cantidad total - {{ $cliente->coins }}</label>
+            <label for="">Cantidad total | {{ $cliente->coins }} monedas</label>
             @error('message')
                 <div class="error">
                     {{ $message }}
