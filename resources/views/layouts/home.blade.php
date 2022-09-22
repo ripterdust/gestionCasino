@@ -13,6 +13,10 @@
         <div class="logo">
             Acá irá el logo
         </div>
+
+        @if ($usuario)
+            <a href="{{ route('index') }}" class="btn btn-fill">Cerrar</a>
+        @endif
     </nav>
     <div class="container-body">
         @yield('content')

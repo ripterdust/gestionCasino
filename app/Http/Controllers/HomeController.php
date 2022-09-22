@@ -13,7 +13,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.index');
+        $usuario = False;
+        return view('home.index', compact('usuario'));
     }
 
     /**

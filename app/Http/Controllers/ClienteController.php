@@ -83,8 +83,10 @@ class ClienteController extends Controller
     public function show($id)
     {
 
+        $usuario = False;
         $cliente = Cliente::find($id);
 
+        if ($cliente) $usuario = True;
         $fecha = $cliente->created_at;
         $fecha = explode(' ', $fecha)[0];
         $fecha = explode('-', $fecha);
@@ -96,7 +98,7 @@ class ClienteController extends Controller
             ->simplePaginate(4);
 
 
-        return view('clients.index', compact('cliente', 'fecha', 'id', 'transacciones'));
+        return view('clients.index', compact('cliente', 'fecha', 'id', 'transacciones', 'usuario'));
     }
 
     /**
