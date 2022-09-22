@@ -95,6 +95,7 @@ class ClienteController extends Controller
             ->select('transacciones.created_at', 'users.name', 'cantidad')
             ->leftJoin('users', 'users.id', '=', 'cajero_id')
             ->orderBy('created_at', 'desc')
+            ->where('cliente_id', '=', $cliente->id)
             ->simplePaginate(4);
 
 
