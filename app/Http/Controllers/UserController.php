@@ -96,7 +96,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find(Auth::id());
+        $cajero = User::find((int)$id);
+        return view('admin.edit', compact('cajero', 'usuario'));
     }
 
     /**
@@ -108,7 +110,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('home');
     }
 
     /**

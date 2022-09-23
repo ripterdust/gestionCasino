@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/carnet/{id}', [ClienteController::class, 'carnet'])->name('carnet');
     Route::get('/cajero/{id}', [UserController::class, 'show'])->name('cajero');
     Route::get('/cliente/{id}', [ClienteController::class, 'showTransacciones'])->name('cliente.tsc');
+    Route::get('/cajero/update/{id}', [UserController::class, 'edit'])->name('cajero.edit');
+    Route::patch('/cajero/actualizar/{id}', [UserController::class, 'update'])->name('cajero.patch');
     // Rutas de cajero
     Route::get('/monedas', [ClienteController::class, 'monedas'])->name('monedas');
     Route::get('/monedas/{usuario}/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');

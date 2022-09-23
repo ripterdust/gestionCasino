@@ -20,8 +20,8 @@
                 <td><a href="{{ route('cajero', ['id' => $usr->id]) }}">{{  $usr->name }}</a></td>
                 <td>{{ $usr->email }}</td>
                 <td>
-                    <a href="" class="acn"><i class="fa-solid fa-pen"></i></a>
-                    <a href="" class="acn"><i class="fa-solid fa-trash"></i></a>
+                    <a href="{{ route('cajero.edit', ['id' => $usr->id]) }}" class="acn"><i class="fa-solid fa-pen"></i></a>
+                    <a href="{{ route('cajero.edit', ['id' => $usr->id]) }}" class="acn"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach
