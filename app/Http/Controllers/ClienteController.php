@@ -173,9 +173,8 @@ class ClienteController extends Controller
         return view('caja.monedas', compact('usuario'));
     }
 
-    public function agregarMonedas($usr, $id)
+    public function agregarMonedas(Request $request, $usr, $id)
     {
-
         $idUsr = Auth::id();
 
         $usuario = User::find($idUsr);
@@ -212,8 +211,10 @@ class ClienteController extends Controller
 
         $cliente->save();
         $transaccion->save();
-
-        return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito']);
+        $pdf = Pdf::loadView('caja.pdf');
+        $pdf->render();
+        $pdf->setOption('encoding', 'UTF-8');
+        return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito', 'pdf' => base64_encode($pdf->output())]);
     }
 
     public function validarQr($usr, $id)
