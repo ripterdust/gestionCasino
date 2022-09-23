@@ -42,10 +42,6 @@
                 <label for="">Celular</label>
                 <input type="text" name="name" required value="{{ $cliente->phone }}">
             </div>
-            <div class="frm">
-                <label for="">Contraseña</label>
-                <input type="password" name="password">        
-            </div>
 
             <input type="submit" value="Guardar" class="btn btn-fill">
         </form>
