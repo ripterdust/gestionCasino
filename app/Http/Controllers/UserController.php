@@ -27,6 +27,7 @@ class UserController extends Controller
 
         $usuarios = DB::table('users')
             ->where('role', '!=', 'admin')
+            ->where('show', '!=', False)
             ->get();
         return view('admin.index', compact('usuario', 'usuarios'));
     }
@@ -132,7 +133,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::find((int)$id);
+        $usuario->show = False;
+        $usuario->save();
+        return redirect()->back();
     }
 
 

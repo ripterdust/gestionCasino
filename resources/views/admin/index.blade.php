@@ -21,7 +21,7 @@
                 <td>{{ $usr->email }}</td>
                 <td>
                     <a href="{{ route('cajero.edit', ['id' => $usr->id]) }}" class="acn"><i class="fa-solid fa-pen"></i></a>
-                    <a href="{{ route('cajero.edit', ['id' => $usr->id]) }}" class="acn"><i class="fa-solid fa-trash"></i></a>
+                    <a href="{{ route('cajero.destroy', ['id' => $usr->id]) }}" class="acn"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>
         @endforeach
