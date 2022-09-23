@@ -86,3 +86,26 @@ canvas {
         width: 50%;
     }
 }
+
+.flexbox {
+    display: flex;
+}
+
+.f-center {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        font-size: 25px;
+        text-align: center;
+        label {
+            width: 100%;
+            font-size: 20px;
+            text-align: left;
+        }
+    }
+}

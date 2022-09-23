@@ -36,16 +36,16 @@
         </div>
     </div>
 
-    <div class="container g-2 mt-2">
+    <div class="container mt-2">
         <div class="card g-2">
-            <div class="text flex">
+            <div class="text flexbox f-center">
                 <div class="nombre">
-                    <label for="">Nombre</label>
+                    <label for="">Nombre:</label>
                     {{ $cliente->name }}
     
                 </div>
                 <div class="mail">
-                    <label for="">Correo</label>
+                    <label for="">Correo electrónico:</label>
                     {{ $cliente->email }}
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 @endif
             </div>
         </div>
-        <div class="card">
+        <div class="card mt-2">
             <table class="table">
                 <tr>
                     <th>Id</th>
