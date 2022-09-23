@@ -21,6 +21,10 @@ return new class extends Migration
             $table->integer('coins')->default(0);
             $table->longText('img')->nullable();
             $table->string('email')->nullable();
+            $table->boolean('show')->default(True);
+            $table->string('lname')->nullable();
+            $table->date('birth');
+            $table->string('adress')->nullable();
         });
     }
 
