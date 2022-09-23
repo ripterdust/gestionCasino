@@ -231,6 +231,15 @@ class ClienteController extends Controller
 
     public function showTransacciones($id)
     {
-        return $id;
+        $usuario = User::find(Auth::id());
+        $transacciones = DB::table('transacciones')
+            ->select('transacciones.created_at', 'users.name', 'cantidad', 'transacciones.id')
+            ->leftJoin('users', 'users.id', '=', 'cajero_id')
+            ->orderBy('created_at', 'desc')
+            ->where('cliente_id', '=', $id)
+            ->limit(100)
+            ->get();
+
+        return view('clients.show', compact('transacciones', 'usuario'));
     }
 }
