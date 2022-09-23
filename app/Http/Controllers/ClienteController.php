@@ -111,7 +111,10 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find(Auth::id());
+        if ($usuario->role != 'admin') return redirect()->back();
+        $cliente = Cliente::find((int)$id);
+        return view('clients.edit', compact('cliente', 'usuario'));
     }
 
     /**

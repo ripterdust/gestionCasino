@@ -35,12 +35,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/cliente/{id}', [ClienteController::class, 'showTransacciones'])->name('cliente.tsc');
     Route::get('/cajero/update/{id}', [UserController::class, 'edit'])->name('cajero.edit');
     Route::patch('/cajero/actualizar/{id}', [UserController::class, 'update'])->name('cajero.patch');
+
     // Rutas de cajero
     Route::get('/monedas', [ClienteController::class, 'monedas'])->name('monedas');
     Route::get('/monedas/{usuario}/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');
     Route::post('/monedas/agregar', [ClienteController::class, 'guardarMonedas'])->name('monedas.store');
 
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
+
+    // Rutas cliente
+    Route::get('/cliente/edit/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
 });
 
 Route::group(['middleware' => 'guest'], function () {
