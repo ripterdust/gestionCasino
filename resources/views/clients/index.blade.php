@@ -67,6 +67,7 @@
         <div class="card">
             <table class="table">
                 <tr>
+                    <th>Id</th>
                     <th>Nombre cajero</th>
                     <th>Cantidad</th>
                     <th>Fecha</th>
@@ -74,6 +75,7 @@
 
                 @foreach ($transacciones as $trc)
                     <tr>
+                        <td>{{ $trc->id }}</td>
                         <td>{{ $trc->name }}</td>
 
                         @if ($trc->cantidad > 0)
