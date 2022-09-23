@@ -228,4 +228,9 @@ class ClienteController extends Controller
 
         return ['done' => true, 'img' => $img, 'id' => $id];
     }
+
+    public function showTransacciones($id)
+    {
+        return $id;
+    }
 }
