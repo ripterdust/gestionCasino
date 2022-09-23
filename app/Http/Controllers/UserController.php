@@ -80,10 +80,10 @@ class UserController extends Controller
         $usuario = User::find($id);
 
         $transacciones = DB::table('transacciones')
-            ->select('transacciones.created_at', 'users.name', 'cantidad')
-            ->leftJoin('users', 'users.id', '=', 'cajero_id')
+            ->select('transacciones.created_at', 'clientes.name', 'cantidad', 'transacciones.id')
+            ->leftJoin('clientes', 'clientes.id', '=', 'cliente_id')
             ->orderBy('created_at', 'desc')
-            ->simplePaginate(4);
+            ->simplePaginate(100);
 
         return view('admin.show', compact('usuario', 'transacciones'));
     }
