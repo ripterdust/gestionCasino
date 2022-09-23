@@ -13,7 +13,7 @@
         <form action="{{ route('monedas.store') }}" method="POST">
             @csrf
             @method('post')
-         
+     
             <div class="title"><i class="fa-solid fa-coins"></i></div>
             <input type="hidden" name="id" value="{{ $cliente->id }}">
             <label for="">Cantidad total | {{ $cliente->coins }} monedas</label>
@@ -26,6 +26,9 @@
                 <div class="error">
                     Cantidad no válida
                 </div>
+            @enderror
+            @error('scs')
+                <div class="ok">{{ $message }}</div>
             @enderror
             <div class="frm">
                 

@@ -213,7 +213,7 @@ class ClienteController extends Controller
         $cliente->save();
         $transaccion->save();
 
-        return redirect()->back();
+        return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito']);
     }
 
     public function validarQr($usr, $id)
