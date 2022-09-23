@@ -25,7 +25,8 @@ class ClienteController extends Controller
         $usuario = User::find($id);
         if ($usuario->role != 'admin') return redirect()->route('monedas', 'clientes');
 
-        $clientes = Cliente::get();
+        $clientes = Cliente::where('show', '!=', False)
+            ->get();
 
         return view('clients.table', compact('usuario', 'clientes'));
     }
@@ -140,7 +141,10 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Cliente::find((int)$id);
+        $cliente->show = False;
+        $cliente->save();
+        return redirect()->route('clientes');
     }
 
     public function carnet($id)

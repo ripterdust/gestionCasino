@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     // Rutas cliente
     Route::get('/cliente/edit/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
+    Route::get('/cliente/destroy/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
 });
 
 Route::group(['middleware' => 'guest'], function () {
