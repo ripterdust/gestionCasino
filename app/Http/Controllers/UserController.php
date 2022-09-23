@@ -110,7 +110,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->route('home');
+
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required|min:6',
+            'name' => 'required|min:5|max:200'
+        ]);
+        $cliente = User::find((int)$id);
+        $cliente->name = $request->name;
+        $cliente->email = $request->email;
+        $cliente->password = $cliente->password;
+        $cliente->save();
+        return redirect()->back()->withErrors(['success' => 'Datos actualizados correctamente']);
     }
 
     /**
