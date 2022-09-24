@@ -211,10 +211,8 @@ class ClienteController extends Controller
 
         $cliente->save();
         $transaccion->save();
-        $pdf = Pdf::loadView('caja.pdf');
-        $pdf->render();
-        $pdf->setOption('encoding', 'UTF-8');
-        return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito', 'pdf' => base64_encode($pdf->output())]);
+
+        return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito', 'pdf' => $transaccion->id]);
     }
 
     public function validarQr($usr, $id)

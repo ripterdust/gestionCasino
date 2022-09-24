@@ -21,12 +21,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/img', [ClienteController::class, 'saveImage']);
-Route::get('/tsc/{id}', function ($id) {
-    $tsc = Transacciones::find($id);
-
-    $pdf = Pdf::loadView('caja.pdf');
-    $pdf->render();
-    return $pdf->stream();
-    $pdf->setOption('encoding', 'UTF-8');
-    return base64_encode($pdf->output());
-})->name('tsc.pdf');
