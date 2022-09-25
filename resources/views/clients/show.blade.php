@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<div class="bg-table">
     <table class="table">
         <tr>
             <th>id</th>
@@ -38,6 +39,7 @@
             </tr>
         @endforeach
     </table>
+</div>
     
 
 @endsection
