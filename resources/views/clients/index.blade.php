@@ -108,6 +108,7 @@
         const id = {!! json_encode($id) !!}
     </script>
     
-    @vite('resources/js/user/tomarFoto.js')
+    <script src="{{ asset('js/user/tomarFoto.js') }}"></script>
+    {{-- @vite('resources/js/user/tomarFoto.js') --}}
 
 @endsection

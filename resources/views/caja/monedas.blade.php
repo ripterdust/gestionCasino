@@ -17,5 +17,6 @@
             const URLQR = {!! json_encode(route('monedas.add', ['usuario' => '__usuario', 'id' => '__id'])) !!}
         </script>
     </div>
-    @vite('resources/js/qr.js')
+    <script src="{{ asset('js/qr.js') }}"></script>
+    {{-- @vite('resources/js/qr.js') --}}
 @endsection

@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav {
+  top: 0;
+  left: 0;
+  height: 3em;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 1em;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+.nav .logo {
+  color: #dd1162;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.container {
+  padding: 1em 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.container .formulario {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0 2em 2em 2em;
+  border-radius: 1em;
+  background: white;
+  max-width: 500px;
+  width: 500px;
+}
+.container .formulario .title {
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 0.5em;
+  margin-bottom: 2em;
+  margin-top: 0.5em;
+  font-weight: bold;
+}
+.container .formulario .description {
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 20px;
+  width: 100%;
+}
+.container .formulario form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container .formulario form .error {
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  background: #fac0d7;
+  border-radius: 0.5em;
+  border: 1px solid #dd1162;
+  color: #dd1162;
+}
+.container .formulario form input[type=text],
+.container .formulario form input[type=email],
+.container .formulario form input[type=password],
+.container .formulario form .input {
+  width: calc(100% - 2em);
+  border: none;
+  position: relative;
+  margin-bottom: 0.5em;
+  padding: 1em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  color: #333;
+  transition: 0.1s;
+}
+.container .formulario form input[type=text]:focus,
+.container .formulario form input[type=email]:focus,
+.container .formulario form input[type=password]:focus,
+.container .formulario form .input:focus {
+  outline: none;
+  border-bottom: 1px solid #dd1162;
+  margin-bottom: calc(0.5em - 1px);
+}
+.container .formulario form label {
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 0.5em;
+}
+.container .formulario form button {
+  width: 100%;
+  border: none;
+  background: #dd1162;
+  color: white;
+  padding: 0.5em;
+  margin-top: 1.5em;
+  border-radius: 0.5em;
+}
+.container .formulario form a {
+  color: #dd1162;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=auth.css.map */
