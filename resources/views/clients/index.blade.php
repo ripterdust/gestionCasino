@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="container mt-2">
+    <div class="container-home mt-2">
         <div class="card g-2">
             <div class="text flexbox f-center">
                 <div class="nombre">
