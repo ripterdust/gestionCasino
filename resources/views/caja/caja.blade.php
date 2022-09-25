@@ -6,10 +6,6 @@
 @endsection
 
 @section('content')
-    <script>
-        let data = '';
-    </script>
-
     <div class="frm-body">
        
         <form action="{{ route('monedas.store') }}" method="POST">

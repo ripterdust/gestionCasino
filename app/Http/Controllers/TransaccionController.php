@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transacciones;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class TransaccionController extends Controller
 {
@@ -45,7 +48,14 @@ class TransaccionController extends Controller
      */
     public function show($id)
     {
-        return $id;
+        $tsc = DB::table('transacciones')
+            ->select('transacciones.id', 'transacciones.created_at as fecha', 'users.name as cajero_nm', 'clientes.name', 'clientes.lname', 'cantidad')
+            ->leftJoin('users', 'users.id', '=', 'cajero_id')
+            ->leftJoin('clientes', 'clientes.id', '=', 'cliente_id')
+            ->where('transacciones.id', '=', $id)
+            ->get();
+        $pdf = PDF::loadView('caja.pdf', ['tsc' => $tsc[0]]);
+        return $pdf->stream();
     }
 
     /**
