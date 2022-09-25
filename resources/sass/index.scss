@@ -122,12 +122,33 @@ table {
             padding: 1em 0;
             font-weight: 400;
 
+            &:last-child {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                height: 100%;
+                width: 100%;
+                gap: 0.5em;
+            }
             .acn {
-                padding: 0.5em;
+                width: 2em;
+                height: 2em;
+                min-width: 2em;
+                min-height: 2em;
+                max-height: 2em;
+                max-width: 2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 border-radius: 0.5em;
-                height: 0.5em;
-                width: 0.5em;
-                overflow: hidden;
+                i {
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
                 &:nth-child(1) {
                     background: $sucess;
                 }
@@ -140,10 +161,15 @@ table {
                 }
 
                 a {
-                    height: 100%;
-                    width: 100%;
-                    max-width: 0.5em;
-                    max-height: 0.5em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 2em;
+
+                    i {
+                        height: 100%;
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -337,6 +363,81 @@ table {
             font-weight: bold;
         }
     }
+
+    .container {
+        width: 100%;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: $accent;
+            padding: 1em;
+            border-radius: 0.5em;
+            max-width: 500px;
+            .title {
+                font-size: 20px;
+            }
+
+            .description {
+                margin: 0.5em 0 1em 0;
+                text-align: center;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .error {
+                    width: 100%;
+                    background: rgba($danger, 0.6);
+                    padding: 1em;
+                    border: 1px solid $danger;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 1em;
+                    margin-bottom: 1em;
+                    text-align: center;
+                }
+                label {
+                    font-size: 15px;
+                }
+
+                input {
+                    width: 100%;
+                    margin: 1em 0;
+                    background: white;
+                    border: 1px solid white;
+                    padding: 1em 0.5em;
+                    border-radius: 1em;
+                }
+
+                button {
+                    width: 100%;
+                    color: white;
+                    background: $alert;
+                    padding: 1em 0;
+                    border: none;
+                    border-radius: 0.5em;
+                    cursor: pointer;
+                }
+
+                a {
+                    width: 100%;
+                    text-align: center;
+                    margin-top: 1em;
+                }
+            }
+        }
+    }
 }
 
 .modal {
@@ -449,6 +550,10 @@ table {
 }
 
 @media (min-width: 991.98px) {
+    .formulario {
+        width: 50%;
+        background: black;
+    }
     .header {
         display: flex;
         justify-content: flex-end;
@@ -563,9 +668,12 @@ table {
         height: 100%;
     }
 
+    .formulario {
+        width: 100%;
+        background: black;
+    }
     .body {
         overflow-y: scroll;
-
         .table {
             min-width: calc(100vw - 12em);
         }

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 
+    @vite(['resources/js/app.js', 'resources/sass/index.scss'])
 
     <title>@yield('title')</title>
 </head>
