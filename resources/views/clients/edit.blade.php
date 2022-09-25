@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="frm-body">
-        <form action="{{ route('cajero.patch', ['id' => $cliente->id]) }}" method="post">
+        <form action="{{ route('cliente.patch', ['id' => $cliente->id]) }}" method="post">
             @csrf
             @method('patch')
             @error('success')
@@ -15,12 +15,22 @@
             @error('email')
                 <div class="error">Ingrese datos válidos del email</div>
             @enderror
-            @error('password')
-                <div class="error">Inserte una contraseña válida</div>
+            @error('adress')
+                <div class="error">Inserte una dirección válida</div>
             @enderror
              @error('name')
                 <div class="error">Inserte un nombre válido</div>
             @enderror
+            @error('phone')
+                <div class="error">Inserte un teléfono válido</div>
+            @enderror
+            @error('birth')
+                <div class="error">Inserte una fecha válida</div>
+            @enderror
+            @error('lname')
+                <div class="error">Apellidos vacíos o inválidos</div>
+            @enderror
+
             <div class="title"><i class="fa-solid fa-sack-dollar"></i></div>
             <div class="frm">
                 <label for="">Nombre</label>

@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     // Rutas cliente
     Route::get('/cliente/edit/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
     Route::get('/cliente/destroy/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
-
+    Route::patch('/cliente/{id}/update', [ClienteController::class, 'update'])->name('cliente.patch');
     // Transacciones
     Route::get('/recibo/{id}', [TransaccionController::class, 'show'])->name('recibo');
 });

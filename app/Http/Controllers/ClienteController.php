@@ -130,7 +130,26 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'birth' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'lname' => 'required|min:5',
+            'name' => 'required|min:5',
+            'adress' => 'required'
+        ]);
+
+        $cliente = Cliente::find($id);
+
+        $cliente->name = $request->name;
+        $cliente->phone = $request->phone;
+        $cliente->email = $request->email;
+        $cliente->lname = $request->lname;
+        $cliente->birth = $request->birth;
+        $cliente->adress = $request->adress;
+        $cliente->save();
+
+        return redirect()->back()->withErrors(['success' => 'Cliente actualizado con éxito']);
     }
 
     /**
