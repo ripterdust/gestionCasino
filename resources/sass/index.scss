@@ -573,6 +573,10 @@ table {
         position: sticky;
         top: 0;
         left: 0;
+        .active {
+            background: $header;
+            border-radius: 0.5em;
+        }
         .logo {
             font-size: 20px;
             color: #ffd700;
@@ -583,7 +587,7 @@ table {
         }
         .option {
             margin-bottom: 1em;
-
+            padding: 0.5em 0.5em;
             span {
                 display: flex;
                 justify-content: center;

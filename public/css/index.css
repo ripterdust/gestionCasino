@@ -521,6 +521,10 @@ table tr:last-child {
     top: 0;
     left: 0;
   }
+  aside .active {
+    background: #1a2038;
+    border-radius: 0.5em;
+  }
   aside .logo {
     font-size: 20px;
     color: #ffd700;
@@ -531,6 +535,7 @@ table tr:last-child {
   }
   aside .option {
     margin-bottom: 1em;
+    padding: 0.5em 0.5em;
   }
   aside .option span {
     display: flex;

@@ -58,6 +58,12 @@
             @yield('content')   
         </div>
     </div>
-
+    <script>
+        const path = window.location.href;
+        const options = document.querySelectorAll('.option');
+        options.forEach(option => {
+            if(option.href == path) option.classList.add('active')
+        })
+    </script>
 </body>
 </html>
