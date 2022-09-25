@@ -58,12 +58,24 @@
             @yield('content')   
         </div>
     </div>
+    <div class="animacion">
+        <img src="{{ asset('img/logo.jpeg') }}" alt="">
+        Bienvenido
+    </div>
     <script>
         const path = window.location.href;
         const options = document.querySelectorAll('.option');
         options.forEach(option => {
             if(option.href == path) option.classList.add('active')
         })
+
+        const stg = JSON.parse(localStorage.getItem('animacion'))
+        if(stg.enable) {
+            const an = document.querySelector('.animacion')
+            an.classList.add('animacion-activa')
+            localStorage.setItem('animacion', JSON.stringify({enable: false}))
+        }
     </script>
+    
 </body>
 </html>

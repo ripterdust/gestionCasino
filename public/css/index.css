@@ -497,6 +497,27 @@ table tr:last-child {
   margin-top: 1em;
 }
 
+.animacion {
+  width: 100%;
+  height: 100%;
+  background: #1f2a40;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  visibility: hidden;
+}
+.animacion img {
+  width: 20%;
+}
+
+.animacion-activa {
+  animation: agregarAnimacion 3s ease-in-out;
+}
+
 @media (min-width: 991.98px) {
   .formulario {
     width: 50%;
@@ -617,6 +638,14 @@ table tr:last-child {
   }
   .body .table {
     min-width: calc(100vw - 12em);
+  }
+}
+@keyframes agregarAnimacion {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    visibility: hidden;
   }
 }
 

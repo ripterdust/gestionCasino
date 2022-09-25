@@ -12,5 +12,9 @@
 </head>
 <body class="body">
     @yield('content')
+    <script>
+        localStorage.setItem('animacion', JSON.stringify({enable: true}))
+    </script>
 </body>
+
 </html>
