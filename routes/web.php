@@ -60,3 +60,7 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');
+
+Route::fallback(function () {
+    return redirect()->back();
+});
