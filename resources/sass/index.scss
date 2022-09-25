@@ -172,6 +172,12 @@ table {
     display: flex;
     flex-direction: column;
     padding: 2em;
+
+    .centro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .frm-body {
@@ -310,6 +316,9 @@ table {
         padding: 1em;
         height: 90vh;
         overflow-y: scroll;
+        .centro {
+            margin-top: 2em;
+        }
     }
 
     .header {
