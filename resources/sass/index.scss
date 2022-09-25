@@ -288,6 +288,11 @@ table {
                 img {
                     max-width: 100%;
                 }
+                .btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 .overlay {
                     position: absolute;

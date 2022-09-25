@@ -260,6 +260,11 @@ table tr:last-child {
 .container-body .container-home .card .photo img {
   max-width: 100%;
 }
+.container-body .container-home .card .photo .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .container-body .container-home .card .photo .overlay {
   position: absolute;
   width: 100%;
