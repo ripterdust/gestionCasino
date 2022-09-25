@@ -14,7 +14,7 @@
 
     <title>@yield('title')</title>
 </head>
-<body >
+<body class=" animate__animated animate__fadeIn">
     
     <aside>
         <div class="logo">
@@ -54,7 +54,7 @@
         <div class="header">
             <a href="{{ route('logout') }}" class="btn btn-fill">Salir</a>
         </div>
-        <div class="container animate__animated animate__fadeIn">
+        <div class="container">
             @yield('content')   
         </div>
     </div>
