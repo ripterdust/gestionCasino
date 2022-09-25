@@ -36,7 +36,7 @@
             </div>
              <div class="frm">
                 <label for="">Dirección</label>
-                <input type="email" name="adress" requried value="{{ $cliente->adress }}">
+                <input type="adress" name="adress" requried value="{{ $cliente->adress }}">
             </div>
             <div class="frm">
                 <label for="">Correo electrónico</label>
