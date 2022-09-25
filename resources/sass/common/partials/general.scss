@@ -6,10 +6,10 @@
 }
 
 %caja {
-    background: white;
+    background: $lbg;
     width: 100%;
     @extend %sombra;
-    @extend %radio;
+    // @extend %radio;
 }
 
 body {
@@ -252,7 +252,7 @@ button {
 
 .table {
     width: 100%;
-    background: white;
+    background: $lbg;
     border-radius: 1em;
 
     tr {
