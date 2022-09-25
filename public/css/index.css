@@ -385,6 +385,7 @@ table tr:last-child {
   border: 1px solid white;
   padding: 1em 0.5em;
   border-radius: 1em;
+  color: black;
 }
 .body .container .formulario form button {
   width: 100%;
