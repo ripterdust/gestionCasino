@@ -329,6 +329,7 @@ table tr:last-child {
   align-items: center;
 }
 .body nav .logo {
+  text-transform: uppercase;
   color: #f1c40f;
   font-size: 20px;
   font-weight: bold;

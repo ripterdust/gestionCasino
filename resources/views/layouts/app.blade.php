@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="animacion">
-        <img src="{{ asset('img/logo.jpeg') }}" alt="">
+        <img src="{{ asset('img/logo.png') }}" alt="">
         Bienvenido
     </div>
     <script>
