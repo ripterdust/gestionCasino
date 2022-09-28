@@ -8,8 +8,8 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
       table{
-        width: 5cm;
-        height: 10cm;
+  
+        color: white
 
       }
 
@@ -17,32 +17,39 @@
         margin: 0;
         left: 0;
         box-sizing: border-box;
+        color: white;
+        text-transform: uppercase
       }
 
 
     </style>
 </head>
 <body>
-    <table class="carne" style="position: relative; background: #e8e7ed;">
-        <div class="top" style="position: absolute; top: 0; left: 0;width: 100%; height: 1.5cm;background: #dd1162;"></div>
-        <div class="body" style="z-index: 10; padding-top: 1em;">
-          <div class="img m-auto" style="width: 2cm; height: 2cm; overflow: hidden; " center>
-              <img src="{{ $usuario->img }}" alt="" style="height: 100%;">
-          </div>
-
-          <div class="title" style="width: 100%; text-align:center; font-size: 20px; font-weight: bold;">
-              {{ $usuario->name }}
-          </div>
-          <div class="subtitle" style="width: 100%; text-align:center;">Cliente</div>
-          <center>
-              <div class="img m-auto" style="width: 3.5cm; height: 3.5cm; overflow: hidden; padding-top: 1em;" center>
-                  <img src="data:image/svg+xml;base64, {!! $qr !!}" style="height: 100%;"/>
-              </div>
-          </center>
-        </div>
-        <div>
-        </div>
-        <div class="bottom" style="background: #dd1162; position: absolute; bottom: 0; left: 0; width: 100%; height: 1.5cm"></div>
+  
+  <table style="position: relative; background: #010409; width: 12cm; height: 5cm; padding: .5em">
+    <table>
+      <tr>
+        <td style="width: 2cm; ">
+          <img src='{{ public_path('/img/logo.png')}}' alt="" style="width: 2cm;">
+        </td>
+        <td >
+          <span style="text-transform: uppercase; ">Golden <br> Room</span>
+          <span style="display: block; font-size: .5em">Una nueva experiencia</span>
+        </td>
+      </tr>
     </table>
+    <table>
+      <tr style="color: white">
+        <td style="padding-top: 1.5cm; padding-left: .5cm; text-transfrom: uppercase; max-with: 5cm; font-size: 13px">{{ $usuario->name }} {{ $usuario->lname }}<br> {{ $usuario->id }}</td>
+        <td style="padding-left: 2cm">
+           <img src="data:image/svg+xml;base64, {!! $qr !!}" style="width: 3cm"/>
+        </td>
+      </tr>
+      
+    </table>
+  </table>
+
+  <br>
+
 </body>
 </html>
