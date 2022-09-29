@@ -198,8 +198,8 @@ table {
     display: flex;
     flex-direction: column;
     padding: 2em;
-
-    .centro {
+    position: relative;
+    s .centro {
         align-items: center;
     }
 }
@@ -466,6 +466,14 @@ table {
     }
 }
 
+.mdl-center {
+    text-align: center;
+    position: absolute;
+    .text {
+        margin-bottom: 1em;
+    }
+}
+
 .hidden {
     visibility: hidden;
 }
@@ -629,6 +637,21 @@ table {
             min-width: 800px;
         }
     }
+
+    .mdl-center {
+        min-width: 500px;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .text {
+            margin-bottom: 2em;
+            font-size: 20px;
+        }
+    }
 }
 
 //Pantallas medianas (tablets de menos de 992px)
@@ -708,6 +731,19 @@ table {
         overflow-y: scroll;
         .table {
             min-width: calc(100vw - 12em);
+        }
+    }
+
+    .mdl-center {
+        width: calc(100% - 2em);
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .btn {
+            width: 100%;
         }
     }
 }

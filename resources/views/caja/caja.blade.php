@@ -6,6 +6,15 @@
 @endsection
 
 @section('content')
+    <script>
+        let urlModal = ''
+    </script>
+    <div class="modal hidden mdl-center" id="modalFactura">
+        <div class="text" >
+            ¿Imprimir recibo?
+        </div>
+        <a class="btn" id="enlaceModal" target="_blank">Imprimir</a>
+    </div>
     <div class="frm-body">
        
         <form action="{{ route('monedas.store') }}" method="POST">
@@ -40,13 +49,24 @@
 
 
             @error('pdf')
-            <a href="{{ route('recibo', ['id' => $message]) }}" target="_blank" class="btn btn-fill recibo">Imprimir recibo</a>
+            <script>
+                urlModal = {!! json_encode(route('recibo', ['id' => $message])) !!}
+            </script>
             @enderror
         </form>
     </div>
     
     <script>
-       
+        const modal = document.querySelector('#modalFactura')
+        const a = document.querySelector('#enlaceModal')
+        if(urlModal){
+                modal.classList.remove('hidden')
+                a.href = urlModal
+        }
+
+        a.addEventListener('click', () => {
+            modal.classList.add('hidden')
+        })
     </script>
     
 @endsection
