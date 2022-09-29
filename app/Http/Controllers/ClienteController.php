@@ -173,6 +173,9 @@ class ClienteController extends Controller
         // Generando código qr
         $datosQr = base64_encode(json_encode(['usuario' => $cliente->email, 'id' => $cliente->id]));
         $qr = QrCode::generate($datosQr);
+        $htmlQr = '<img src="data:image/svg+xml;base64, ' . base64_encode($qr) . '" style="width: 3cm"/>
+        </td>';
+        return $htmlQr;
         $html =  base64_encode($qr);
         $data = ['usuario' => $cliente, 'qr' => $html];
         // Generando pdf
