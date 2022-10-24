@@ -9,7 +9,6 @@
         ctx.drawImage( img, 0, 0 );
         
         // Now is done
-        console.log( canvas.toDataURL( "image/png" ) );
         const imgQr = document.querySelector('#qrCode')
         imgQr.setAttribute('src', canvas.toDataURL( "image/png" ))
     };
