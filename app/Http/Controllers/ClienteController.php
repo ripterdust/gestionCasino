@@ -166,6 +166,7 @@ class ClienteController extends Controller
         return redirect()->route('clientes');
     }
 
+
     public function carnet($id)
     {
         $cliente = Cliente::find($id);
@@ -173,7 +174,9 @@ class ClienteController extends Controller
         // Generando código qr
         $datosQr = base64_encode(json_encode(['usuario' => $cliente->email, 'id' => $cliente->id]));
         $qr = QrCode::generate($datosQr);
-        $htmlQr = '<img src="data:image/svg+xml;base64, ' . base64_encode($qr) . '" style="width: 3cm"/>
+
+        return view('Qr', ['qr' => base64_encode($qr)]);
+        $htmlQr = '<img src="data:image/svg+xml;base64, ' . base64_encode($qr) . '" style="width: 3cm" alt="Logo qr usuario"/>
         </td>';
         return $htmlQr;
         $html =  base64_encode($qr);
