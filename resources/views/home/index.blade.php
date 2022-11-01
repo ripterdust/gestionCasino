@@ -14,7 +14,7 @@
     }
 </style>
 
-    <input type="text" placeholder="Número del qr" class="inputQr" id="inputBarcode">
+    <input type="text" placeholder="Número del qr" class="inputQr" id="inputBarcode" autofocus>
 
     <div class="centro">
         <div style="width:500px;" id="reader"></div>

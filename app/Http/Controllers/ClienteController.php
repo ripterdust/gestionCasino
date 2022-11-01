@@ -89,7 +89,9 @@ class ClienteController extends Controller
 
         $usuario = False;
         $cliente = Cliente::find($id);
-
+        if (!$cliente) {
+            return redirect()->back();
+        }
         if ($cliente) $usuario = True;
         $fecha = $cliente->created_at;
         $fecha = explode(' ', $fecha)[0];
