@@ -15,6 +15,6 @@ class BarcodeController extends Controller
         if (!$cliente) {
             return redirect()->back();
         }
-        return view('Barcode', ['cliente' => $cliente]);
+        return view('Barcode', ['nombre' => $cliente->nombre, 'id' => '00000' . $cliente->id]);
     }
 }

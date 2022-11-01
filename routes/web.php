@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/cliente/new', [ClienteController::class, 'create'])->name('cliente.new');
     Route::post('/cliente/new', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('/carnet/{id}', [ClienteController::class, 'carnet'])->name('carnet');
+    Route::get('/carneCliente/{id}', [BarcodeController::class, 'show'])->name('cliente.showBar');
     Route::get('/cajero/{id}', [UserController::class, 'show'])->name('cajero');
     Route::get('/cliente/{id}', [ClienteController::class, 'showTransacciones'])->name('cliente.tsc');
     Route::get('/cajero/update/{id}', [UserController::class, 'edit'])->name('cajero.edit');
@@ -60,7 +61,6 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');
 });
 
-Route::get('/carneCliente/{id}', [BarcodeController::class, 'show'])->name('cliente.showBar');
 
 Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');
 
