@@ -200,6 +200,8 @@ return [
 
         // Generador de qrs
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        // Barcode
+        Milon\Barcode\BarcodeServiceProvider::class,
     ],
 
     /*
@@ -216,6 +218,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'DNS1D' => Milon\Barcode\Facades\DNS1DFacade::class,
+
     ])->toArray(),
 
 ];

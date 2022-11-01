@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarcodeController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
@@ -58,6 +59,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/qr/{usuario}/{id}', [ClienteController::class, 'validarQr'])->name('login_qr');
     Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');
 });
+
+Route::get('/carneCliente/{id}', [BarcodeController::class, 'show'])->name('cliente.showBar');
 
 Route::post('/imagen', [UserController::class, 'saveImage'])->name('img');
 
