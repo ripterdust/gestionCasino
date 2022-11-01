@@ -18,13 +18,8 @@
 
     <div class="centro">
         <div style="width:500px;" id="reader"></div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.2.1/html5-qrcode.min.js" integrity="sha512-cuVnjPNH3GyigomLiyATgpCoCmR9T3kwjf94p0BnSfdtHClzr1kyaMHhUmadydjxzi1pwlXjM5sEWy4Cd4WScA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-            const URLQR = {!! json_encode(route('login_qr', ['usuario' => '__usuario', 'id' => '__id'])) !!}
-        </script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </div>
-    <script src="{{ asset('js/qr.js') }}"></script>
-
     <script src="{{ asset('js/barcode.js') }}"></script>
 @endsection
