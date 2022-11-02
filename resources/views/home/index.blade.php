@@ -31,7 +31,7 @@
     }
 </style>
 
-    <input type="text" placeholder="Número del qr" class="inputQr" id="inputBarcode" autofocus>
+    <input type="text" placeholder="Número código de barras" class="inputQr" id="inputBarcode" autofocus>
 
     <div class="centro">
         <div style="width:500px;" id="reader"></div>
