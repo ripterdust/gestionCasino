@@ -5,12 +5,29 @@
 @section('content')
 
 <style>
+
+    body{
+        max-height: 100vh;
+        overflow: hidden;
+    }
     .inputQr {
         width: 25%;
         padding: 1em;
         border: 1px solid white;
         margin-bottom: 1em;
         background: transparent;
+    }
+
+    #reader{
+        width: 100%;
+        max-height: 500px;
+    }
+
+    video {
+        width: 100%;
+    }
+    .drawingBuffer{
+        visibility: hidden;
     }
 </style>
 
