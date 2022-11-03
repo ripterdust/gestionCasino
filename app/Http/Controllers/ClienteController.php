@@ -7,7 +7,7 @@ use App\Models\Transacciones;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Illuminate\Http\Raequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
