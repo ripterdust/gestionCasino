@@ -200,7 +200,7 @@ class ClienteController extends Controller
         return view('caja.monedas', compact('usuario'));
     }
 
-    public function agregarMonedas(Request $request, $usr, $id)
+    public function agregarMonedas(Request $request,  $id)
     {
         $idUsr = Auth::id();
 
@@ -208,7 +208,9 @@ class ClienteController extends Controller
         if ($usuario->role != 'cajero') return redirect()->route('home');
 
         $cliente = Cliente::find($id);
-        if (!$cliente || $cliente->email != $usr) return redirect()->route('monedas');
+        if (!$cliente) {
+            return redirect()->route('monedas');
+        }
 
         return view('caja.caja', compact('usuario', 'cliente'));
     }
@@ -242,12 +244,12 @@ class ClienteController extends Controller
         return redirect()->back()->withErrors(['scs' => 'Transacción realizada con éxito', 'pdf' => $transaccion->id]);
     }
 
-    public function validarQr($usr, $id)
+    public function validarQr($id)
     {
         $id = (int)$id;
         $cliente = Cliente::find($id);
 
-        if (!$cliente || $cliente->email != $usr) return redirect()->back()->withErrors(['message' => 'Usuario inválido o no encontrado']);
+        if (!$cliente) return redirect()->back()->withErrors(['message' => 'Usuario inválido o no encontrado']);
 
         return redirect()->route('cliente.show', ['id' => $cliente->id]);
     }

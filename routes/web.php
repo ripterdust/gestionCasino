@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
     // Rutas de cajero
     Route::get('/monedas', [ClienteController::class, 'monedas'])->name('monedas');
-    Route::get('/monedas/{usuario}/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');
+    Route::get('/monedas/{id}', [ClienteController::class, 'agregarMonedas'])->name('monedas.add');
     Route::post('/monedas/agregar', [ClienteController::class, 'guardarMonedas'])->name('monedas.store');
 
     Route::get('/borrar_foto', [UserController::class, 'borrarFoto'])->name('borrarFoto');
@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
-    Route::get('/qr/{usuario}/{id}', [ClienteController::class, 'validarQr'])->name('login_qr');
+    Route::get('/qr/{id}', [ClienteController::class, 'validarQr'])->name('login_qr');
     Route::get('/cliente/{id}', [ClienteController::class, 'show'])->name('cliente.show');
 });
 
