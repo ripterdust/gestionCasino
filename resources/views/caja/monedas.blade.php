@@ -7,46 +7,51 @@
 
 @section('content')
     <style>
-           body{
-        max-height: 100vh;
-        overflow: hidden;
-    }
-    .inputQr {
-        width: 25%;
-        padding: 1em;
-        border: 1px solid white;
-        margin-bottom: 1em;
-        background: transparent;
-    }
+        .inputQr{
+            width: 450px;
+            background: transparent;
+            padding: 1em;
+            border: 1px solid white;
+            background: transparent;
+            max-width: 90%;
+        }
+        .codabar{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
 
-    #reader{
-        width: 100%;
-        max-height: 500px;
-    }
 
-    video {
-        width: 100%;
-    }
-    .drawingBuffer{
-        visibility: hidden;
-    }
+        #reader{
+            margin-top: 1em;
+            width: 100%;
+            display: flex;
+        }
+
+        .drawingBuffer{
+            display: none;
+        }
+
+        video{
+            width: 450px;
+            margin: auto;
+            max-width: 90%;
+        }
     </style>
-    <div class="centro">
 
-        <div style="width:500px;" id="reader"></div>
+<div class="codabar">
+    <input type="text" placeholder="Número código de barras" class="inputQr" id="inputBarcode" autofocus>
+    
+</div>
 
-          <input type="text" placeholder="Número código de barras" class="inputQr" id="inputBarcode" autofocus>
+<div id="reader"></div>
 
-        <div class="centro">
-            <div style="width:500px;" id="reader"></div>
-            
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        </div>
-       
-        <script>
-            const URLQR = {!! json_encode(route('monedas.add', ['id' => '__id'])) !!}
-        </script>
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js" integrity="sha512-bCsBoYoW6zE0aja5xcIyoCDPfT27+cGr7AOCqelttLVRGay6EKGQbR6wm6SUcUGOMGXJpj+jrIpMS6i80+kZPw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const URLQR = {!! json_encode(route('monedas.add', ['id' => '__id'])) !!}
+    </script>
     <script>
         const changePage = (value) => {
             const newUrl = URLQR.replace('__id', value)
@@ -85,4 +90,6 @@
         );
 
     </script>
+
 @endsection
+
